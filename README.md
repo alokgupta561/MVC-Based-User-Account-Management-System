@@ -1,153 +1,45 @@
 # MVC-Based-User-Account-Management-System
-1. Project Description
+Project Description :
 
-Secure User Account Management System is a Java-based web application that provides complete user account lifecycle management. The application allows users to register, authenticate, view their profile, update profile details, and logout securely.
+The MVC-Based User Account Management System is a Java web application developed to manage the complete lifecycle of user accounts. The application allows users to register, log in, view their profile information, update their details, and securely log out. It is built using Servlets, JSP, JDBC, and MySQL. The system follows the Model-View-Controller (MVC) architecture to ensure proper separation between the presentation layer, business logic, and data access layer. The DAO design pattern is used to handle database operations in a structured and maintainable way. The main objective of this project is to demonstrate how a dynamic web application can be developed using core Java technologies with clean architecture and modular design.
 
-This project is developed using Servlets, JSP, JDBC, and MySQL, and follows the MVC (Model-View-Controller) architecture along with the DAO design pattern to maintain proper separation of concerns.
+Objectives :
 
-The goal of this project is to demonstrate a structured approach to building a dynamic web application using core Java technologies.
+The primary objective of this project is to implement a secure user authentication system and perform complete CRUD operations using JDBC. It also aims to apply MVC architecture in a real-world web application, use the DAO pattern for database abstraction, manage user sessions properly after login, and deploy the application on Apache Tomcat server.
 
-2. Objectives
+Technologies Used :
 
-Implement secure user authentication
-Perform CRUD operations using JDBC
-Apply MVC architecture in a web application
-Use DAO pattern for database abstraction
-Manage user sessions properly
-Deploy a Java web application on Apache Tomcat
+This project is developed using Core Java, Java Servlets, JSP (Java Server Pages), JDBC, and MySQL. HTML5 and CSS3 are used for the frontend interface. The application is deployed on Apache Tomcat and developed using Eclipse IDE.
 
-3. Technologies Used
+System Architecture :
 
-Core Java
-Java Servlets
-JSP (Java Server Pages)
-JDBC
-MySQL
-HTML5
-CSS3
-Apache Tomcat
-Eclipse IDE
+The application is structured using MVC architecture. The model layer contains the UserBean class, which represents the user entity, along with DAO classes such as UserRegisterDAO, UserLoginDAO, and UpdateProfileDAO that handle all database interactions. The view layer consists of JSP and HTML files including index.html, Register.jsp, Home.jsp, EditProfile.jsp, UpdateProfile.jsp, and ViewProfile.jsp, which are responsible for displaying data to the user. The controller layer contains Servlets such as UserRegistrationServlet, UserLoginServlet, EditProfileServlet, UpdateProfileServlet, ViewProfileServlet, and LogoutServlet, which process client requests and control the application flow. Database connectivity is managed through DBConnect.java and DBInfo.java.
 
-4. System Architecture
-This application follows the MVC architecture.
+Functional Modules :
 
-Model :
+The application includes several functional modules. The user registration module allows new users to create an account and store their information in the database using JDBC. The login module verifies user credentials and creates a session upon successful authentication. The profile viewing module retrieves user data from the database and displays it dynamically using JSP. The edit and update module allows users to modify their profile details and persist changes using the DAO layer. The logout module invalidates the session and redirects the user back to the login page to ensure secure access control.
 
-UserBean.java – Represents the user entity
-DAO classes handle database operations:
-UserRegisterDAO.java
-UserLoginDAO.java
-UpdateProfileDAO.java
+Database Design :
 
-View :
-JSP and HTML pages :
+The application uses MySQL as the database. It contains a users table with fields such as id, name, email, password, and phone. JDBC with PreparedStatement is used to execute SQL queries securely and prevent SQL injection. Database connection handling is separated into dedicated classes to maintain clean code structure.
 
-index.html
-Register.jsp
-Home.jsp
-EditProfile.jsp
-UpdateProfile.jsp
-ViewProfile.jsp
+Application Flow :
 
-Controller :
+When a user accesses the application, they can either register a new account or log in with existing credentials. After successful login, a session is created to maintain the user’s authenticated state. The user can then view or update profile details. When the user chooses to log out, the session is invalidated and the application redirects back to the login page.
 
-Servlets that handle client requests:
-UserRegistrationServlet.java
-UserLoginServlet.java
-EditProfileServlet.java
-UpdateProfileServlet.java
-ViewProfileServlet.java
-LogoutServlet.java
+Project Structure :
 
-Database connectivity is managed through :
+The source code is organized into separate packages under src/main/java for model, DAO, and servlet classes. The view components including JSP, HTML, and CSS files are placed under src/main/webapp. This structure ensures a clear separation between backend logic and frontend presentation.
 
-DBConnect.java
-DBInfo.java
+How to Run the Application :
 
-5. Functional Modules
-   
-User Registration : Allows new users to create an account. User data is validated                        and stored in the database using JDBC.
+To run the application, clone the repository and import it into Eclipse as a Dynamic Web Project. Configure the MySQL database and create the required users table. Update the database credentials inside DBConnect.java. Add the MySQL Connector JAR file to the project build path. Deploy the project on Apache Tomcat and access it through the appropriate localhost URL.
 
-User Login : Authenticates user credentials against the database. On successful                   login, a session is created and the user is redirected to the home page.
+Key Concepts Implemented :
 
-View Profile : Fetches user details from the database and displays them dynamically                 using JSP.
-Edit and Update Profile : Allows users to modify their profile information. Updated                            data is persisted using the DAO layer.
+This project demonstrates practical implementation of MVC architecture, DAO design pattern, servlet lifecycle, session management, JDBC with PreparedStatement, CRUD operations, form handling, and web application deployment on Tomcat server.
 
-Logout :  Invalidates the active session and redirects the user to the login page.
+Future Improvements
 
-6. Database Design
-
-Database: MySQL
-Table: users
-
-Example table structure:
-
-id (Primary Key, INT)
-name (VARCHAR)
-email (VARCHAR)
-password (VARCHAR)
-phone (VARCHAR)
-JDBC is used with PreparedStatement to execute SQL queries securely.
-
-7. Application Flow
-
-User accesses the application.
-If not registered, user creates a new account.
-User logs in using registered credentials.
-A session is created after successful authentication.
-User can view and update profile details.
-User logs out and session is invalidated.
-
-8. Project Structure :
- 
-src/main/java/com.pack1
-    DBConnect.java
-    DBInfo.java
-    UserBean.java
-    UserRegisterDAO.java
-    UserLoginDAO.java
-    UpdateProfileDAO.java
-    UserRegistrationServlet.java
-    UserLoginServlet.java
-    EditProfileServlet.java
-    UpdateProfileServlet.java
-    ViewProfileServlet.java
-    LogoutServlet.java
-
-src/main/webapp
-    index.html
-    Register.jsp
-    Home.jsp
-    EditProfile.jsp
-    UpdateProfile.jsp
-    ViewProfile.jsp
-    style.css
-    
-9. How to Run the Application
-
- Clone the repository.
-Import the project into Eclipse as a Dynamic Web Project.
-Configure MySQL and create the required table.
-Update database credentials in DBConnect.java.
-Add MySQL Connector JAR to the project.
-Deploy the application on Apache Tomcat.
-
-10. Key Concepts Implemented
-
-MVC architecture
-DAO design pattern
-Servlet lifecycle
-Session management
-JDBC with PreparedStatement
-CRUD operations
-Form handling
-Web application deployment
-
-11. Future Improvements
-
-Password encryption using hashing
-Input validation improvements
-Role-based access control
-Integration with Spring Boot
-REST API version of the application
+Future enhancements may include implementing password encryption using hashing techniques, improving input validation, adding role-based access control, migrating the application to Spring Boot, and creating a REST API version of the system.
 
